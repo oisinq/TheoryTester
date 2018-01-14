@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Theory Tester</string>
+
+    <string name="greeting">Welcome to the theory test app!\nAnswer the questions below.</string>
+
+    <string name="q1Heading">Question 1:</string>
+    <string name="q2Heading">Question 2:</string>
+    <string name="q3Heading">Question 3:</string>
+    <string name="q4Heading">Question 4:</string>
+    <string name="q5Heading">Question 5:</string>
+
+    <string name="q1">At road junctions, what type of road users are particularly vulnerable?</string>
+    <string name="q2">What does this sign mean?</string>
+    <string name="q3">What does this hand signal mean?</string>
+    <string name="q4">What does this road marking indicate?</string>
+    <string name="q5">What does this Garda signal mean?</string>
+
+    <string name="q1option1">Minibus or van drivers</string>
+    <string name="q1option2">Cyclists</string>
+    <string name="q1option3">Tractor drivers</string>
+    <string name="q1option4">Car drivers</string>
+
+    <string name="q2ImgDesc">Image for question 2</string>
+    <string name="q2option1">Maximum speed is 80km/h</string>
+    <string name="q2option2">80 meters to start of motorway</string>
+    <string name="q2option3">Maximum permitted weight is 80 tonnes</string>
+    <string name="q2option4">80 meters to end of motorway</string>
+
+    <string name="q3ImgDesc">Image for question 3</string>
+    <string name="q3option1">The driver intends to yield to oncoming traffic</string>
+    <string name="q3option2">The driver intends to slow down or stop</string>
+    <string name="q3option3">The driver intends to turn left</string>
+    <string name="q3option4">The driver intends to turn right</string>
+
+    <string name="q4ImgDesc">Image for question 4</string>
+    <string name="q4option1">Pedestrian island ahead</string>
+    <string name="q4option2">Cycle lane ahead</string>
+    <string name="q4option3">Zebra crossing</string>
+    <string name="q4option4">Traffic calming ahead</string>
+
+    <string name="q5ImgDesc">Image for question 5</string>
+    <string name="q5option1">The Garda is beckoning on traffic approaching from the front</string>
+    <string name="q5option2">You must not proceed to the left</string>
+    <string name="q5option3">You must not proceed to the right</string>
+    <string name="q5option4">The Garda is beckoning on traffic approaching from either side</string>
+
+    <string name="result">Result: %d/5</string>
+    <string name="reset">Reset</string>
+
+</resources>
