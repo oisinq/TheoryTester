@@ -46,5 +46,6 @@
 
     <string name="result">Result: %d/5</string>
     <string name="reset">Reset</string>
+    <string name="share">Share</string>
 
 </resources>
