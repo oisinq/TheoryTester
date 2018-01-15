@@ -10,8 +10,6 @@ import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import static io.oisin.theorytester.R.id.group4;
-import static io.oisin.theorytester.R.id.group5;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,9 +17,37 @@ public class MainActivity extends AppCompatActivity {
     // When the app is opened, the score is 0
     int score = 0;
 
+    RadioGroup group1, group2, group3, group4, group5;
+    TextView answer;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        group1 = (RadioGroup) findViewById(R.id.group1);
+        group2 = (RadioGroup) findViewById(R.id.group2);
+        group3 = (RadioGroup) findViewById(R.id.group3);
+        group4 = (RadioGroup) findViewById(R.id.group4);
+        group5 = (RadioGroup) findViewById(R.id.group5);
+        answer = (TextView) findViewById(R.id.answer);
+    }
+
+    /**
+     * This sets the value of the answer TextView at the bottom of the app
+     */
+    public void setAnswer() {
+        String answerValue = getString(R.string.result, score);
+
+
+        answer.setText(answerValue);
+    }
+
     public void resetQuiz(View v) {
 
-        RadioGroup group1 = (RadioGroup) findViewById(R.id.group1);
+        ScrollView mainScrollView = (ScrollView)findViewById(R.id.activity_main);
+        mainScrollView.fullScroll(ScrollView.FOCUS_UP);
+
         for (int i = 0; i < group1.getChildCount(); i++) {
             RadioButton b = (RadioButton)group1.getChildAt(i);
 
@@ -30,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         }
         group1.clearCheck();
 
-        RadioGroup group2 = (RadioGroup) findViewById(R.id.group2);
         for (int i = 0; i < group2.getChildCount(); i++) {
             RadioButton b = (RadioButton)group2.getChildAt(i);
 
@@ -39,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
         }
         group2.clearCheck();
 
-        RadioGroup group3 = (RadioGroup) findViewById(R.id.group3);
         for (int i = 0; i < group3.getChildCount(); i++) {
             RadioButton b = (RadioButton)group3.getChildAt(i);
 
@@ -48,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
         }
         group3.clearCheck();
 
-        RadioGroup group4 = (RadioGroup) findViewById(R.id.group4);
         for (int i = 0; i < group4.getChildCount(); i++) {
             RadioButton b = (RadioButton)group4.getChildAt(i);
 
@@ -57,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
         }
         group4.clearCheck();
 
-        RadioGroup group5 = (RadioGroup) findViewById(R.id.group5);
         for (int i = 0; i < group5.getChildCount(); i++) {
             RadioButton b = (RadioButton)group5.getChildAt(i);
 
@@ -68,15 +90,16 @@ public class MainActivity extends AppCompatActivity {
 
         score = 0;
         setAnswer();
-
-
-        ScrollView mainScrollView = (ScrollView)findViewById(R.id.activity_main);
-        mainScrollView.fullScroll(ScrollView.FOCUS_UP);
     }
 
+    /**
+     * This lets the user share their result with friends
+     */
     public void share(View v) {
 
         String message = "";
+
+        // If you've passed, then the message reflects this outcome
         if (score > 3) {
             message = "I passed my theory test with a score of " + score + " out of 5 in the Theory Tester app.\nTry it out!";
         } else {
@@ -105,11 +128,10 @@ public class MainActivity extends AppCompatActivity {
         // This changes the colour of the correct answer to green
         button.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary));
 
-        RadioGroup group = (RadioGroup) findViewById(R.id.group1);
         // This iterates through the RadioGroup to disable each RadioButton
         // We do this as we don't want the user to change their answer after selecting it
-        for (int i = 0; i < group.getChildCount(); i++) {
-            group.getChildAt(i).setEnabled(false);
+        for (int i = 0; i < group1.getChildCount(); i++) {
+            group1.getChildAt(i).setEnabled(false);
         }
 
         // This sets the answer text at the bottom of the screen
@@ -131,11 +153,10 @@ public class MainActivity extends AppCompatActivity {
         // This changes the colour of the correct answer to green
         button.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary));
 
-        RadioGroup group = (RadioGroup) findViewById(R.id.group2);
         // This iterates through the RadioGroup to disable each RadioButton
         // We do this as we don't want the user to change their answer after selecting it
-        for (int i = 0; i < group.getChildCount(); i++) {
-            group.getChildAt(i).setEnabled(false);
+        for (int i = 0; i < group2.getChildCount(); i++) {
+            group2.getChildAt(i).setEnabled(false);
         }
 
         // This sets the answer text at the bottom of the screen
@@ -157,11 +178,10 @@ public class MainActivity extends AppCompatActivity {
         // This changes the colour of the correct answer to green
         button.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary));
 
-        RadioGroup group = (RadioGroup) findViewById(R.id.group3);
         // This iterates through the RadioGroup to disable each RadioButton
         // We do this as we don't want the user to change their answer after selecting it
-        for (int i = 0; i < group.getChildCount(); i++) {
-            group.getChildAt(i).setEnabled(false);
+        for (int i = 0; i < group3.getChildCount(); i++) {
+            group3.getChildAt(i).setEnabled(false);
         }
 
         // This sets the answer text at the bottom of the screen
@@ -183,11 +203,10 @@ public class MainActivity extends AppCompatActivity {
         // This changes the colour of the correct answer to green
         button.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary));
 
-        RadioGroup group = (RadioGroup) findViewById(group4);
         // This iterates through the RadioGroup to disable each RadioButton
         // We do this as we don't want the user to change their answer after selecting it
-        for (int i = 0; i < group.getChildCount(); i++) {
-            group.getChildAt(i).setEnabled(false);
+        for (int i = 0; i < group4.getChildCount(); i++) {
+            group4.getChildAt(i).setEnabled(false);
         }
 
         // This sets the answer text at the bottom of the screen
@@ -209,14 +228,12 @@ public class MainActivity extends AppCompatActivity {
         // This changes the colour of the correct answer to green
         button.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary));
 
-        RadioGroup group = (RadioGroup) findViewById(group5);
         // This iterates through the RadioGroup to disable each RadioButton
         // We do this as we don't want the user to change their answer after selecting it
-        for (int i = 0; i < group.getChildCount(); i++) {
-            group.getChildAt(i).setEnabled(false);
+        for (int i = 0; i < group5.getChildCount(); i++) {
+            group5.getChildAt(i).setEnabled(false);
         }
 
-        TextView answer = (TextView) findViewById(R.id.answer);
         String answerValue = "Result: " + score + "/5";
 
         // If you score more than 3 points, you pass the test
@@ -230,22 +247,4 @@ public class MainActivity extends AppCompatActivity {
         answer.setText(answerValue);
     }
 
-    /**
-     * This sets the value of the answer TextView at the bottom of the app
-     */
-    public void setAnswer() {
-        TextView answer = (TextView) findViewById(R.id.answer);
-        String answerValue = getString(R.string.result, score);
-
-
-        answer.setText(answerValue);
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        setAnswer();
-    }
 }
